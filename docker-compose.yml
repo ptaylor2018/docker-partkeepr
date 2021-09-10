@@ -13,7 +13,7 @@ services:
       - mysql-data:/var/lib/mysql
 
   partkeepr:
-    image: mhubig/partkeepr:latest
+    image: ptaylor2018/partkeepr:latest
     restart: on-failure
     environment:
       - PARTKEEPR_DATABASE_HOST

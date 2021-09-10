@@ -26,9 +26,7 @@ RUN set -ex \
     && docker-php-ext-enable apcu \
     \
     && cd /var/www/html \
-    && git init \
-    && git remote add origin https://github.com/partkeepr/PartKeepr.git .\
-    && git pull origin master \
+    && git clone https://github.com/partkeepr/PartKeepr.git .\
     && chown -R www-data:www-data /var/www/html \
     \
     && a2enmod rewrite

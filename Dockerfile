@@ -25,8 +25,7 @@ RUN set -ex \
     && docker-php-ext-enable apcu \
     \
     && cd /var/www/html \
-    && curl -sL https://downloads.partkeepr.org/partkeepr-${PARTKEEPR_VERSION}.tbz2 \
-        |bsdtar --strip-components=1 -xvf- \
+    && git clone https://github.com/partkeepr/PartKeepr.git .\ 
     && chown -R www-data:www-data /var/www/html \
     \
     && a2enmod rewrite

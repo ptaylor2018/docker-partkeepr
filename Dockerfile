@@ -15,6 +15,7 @@ RUN set -ex \
         libpng-dev \
         libldap2-dev \
         cron \
+        git \
     --no-install-recommends && rm -r /var/lib/apt/lists/* \
     \
     && docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu/ \
@@ -25,7 +26,9 @@ RUN set -ex \
     && docker-php-ext-enable apcu \
     \
     && cd /var/www/html \
-    && git clone https://github.com/partkeepr/PartKeepr.git .\ 
+    && git init \
+    && git remote add origin https://github.com/partkeepr/PartKeepr.git .\
+    && git pull origin master \
     && chown -R www-data:www-data /var/www/html \
     \
     && a2enmod rewrite
